@@ -1,7 +1,7 @@
 import sqlite3
 import os
 
-def get_connection(database="exo_mercredi.db"):
+def get_connection(database="user_authentification.db"):
     # Check if the database file exists
     if not os.path.exists(database):
         print(f"Database file '{database}' does not exist. Creating and populating...")
