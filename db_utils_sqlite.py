@@ -1,5 +1,6 @@
 import sqlite3
 import os
+# -*- coding: utf-8 -*-
 
 def get_connection(database="user_authentification.db"):
     # Check if the database file exists
@@ -45,6 +46,15 @@ def insert_user(email, password):
                            (email, password))
     print(f"User inserted: Email - {email}, Password - {password}")
 
+def get_user_by_email(email):
+    connection = get_connection()
+    cursor = connection.cursor()
+    cursor.execute('SELECT * FROM customer WHERE email = ?', (email,))
+    user = cursor.fetchone()
+
+    user_dict = {'id': user[0], 'email': user[1], 'password': user[2]} if user else None
+    return user_dict
+   
 # Example usage
 if __name__ == '__main__':
     insert_user("test@example.com", "password123")
