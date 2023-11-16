@@ -23,7 +23,7 @@ def new_user():
   
         else:
             # Add any additional actions here
-            return jsonify({'message': 'Access granted'}), 20
+            return jsonify({'message': 'Access granted'}), 200
     else:
         # If the email does not exist, proceed with user registration
         insert_user(email, password)
