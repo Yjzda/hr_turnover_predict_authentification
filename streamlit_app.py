@@ -4,7 +4,7 @@ import requests
 def main():
     st.title('Streamlit Flask Integration')
 
-    # User input for email and password
+   
     email = st.text_input('Enter your email:')
     password = st.text_input('Enter your password:', type='password')
 
@@ -17,7 +17,7 @@ def main():
             # Send a POST request to the Flask server
             response = requests.post('http://localhost:5000/new-user', json=data_payload)
 
-            # Display the response from the server
+           
             st.write('Response from Flask Server:')
             st.write(response.json())
 
@@ -49,15 +49,14 @@ def show_pages():
         st.write('Content of Page 3')
 
 def send_page(selected_page):
-    # Send the selected page to the Flask server (you can implement this part based on your needs)
+   
     payload = {'selected_page': selected_page}
     response = requests.post('http://localhost:5000/send-page', json=payload)
 
-    # Display the response from the server
+  
     st.write('Response from Flask Server:')
     st.write(response.json())
 
-    # Show content based on the selected page
     if selected_page == 'Page 1':
         st.write('Content of Page 1')
     elif selected_page == 'Page 2':
