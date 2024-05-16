@@ -3,17 +3,17 @@ import os
 # -*- coding: utf-8 -*-
 
 def get_connection(database="user_authentification.db"):
-    # Check if the database file exists
+   
     if not os.path.exists(database):
         print(f"Database file '{database}' does not exist. Creating and populating...")
         create_and_populate_database(database)
-    # Connect to the SQLite database
+   
     connection = sqlite3.connect(database)
     print(f"Connected to database '{database}'")
     return connection
 
 def init_db():
-    # Create a customer table in the database if it doesn't exist
+
     conn = get_connection()
     cursor = conn.cursor()
     cursor.execute('''
